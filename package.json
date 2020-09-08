@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.6.3",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "@ant-design/icons": "^4.2.2",
+    "antd": "4.6.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
