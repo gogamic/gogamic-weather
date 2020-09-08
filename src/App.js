@@ -1,10 +1,10 @@
 import React from "react";
-import "./style.css";
+
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import Navbar from './Nav.js';
 import Searchbar from './Searchbox.js';
-
+import Weather from './Weather.js';
 
 export default function App() {
 
@@ -14,6 +14,7 @@ export default function App() {
     <center>
     <Searchbar />
     </center>
+    <Weather />
     </>
   );
 }
