@@ -3,16 +3,7 @@ import React from "react";
 import { AudioOutlined } from '@ant-design/icons';
 import ()
 
-const { Search } = Input;
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
 
 export default function Searchbar() {
   return(
