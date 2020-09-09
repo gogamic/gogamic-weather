@@ -70,8 +70,8 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       style={{ width: 200 }}
       onPressEnter = {(e) => {
 
-      console.log(e)
-      axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ e +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
+      console.log(e.data)
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ e.data +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
       .then(res => {
       const data = res.data;
       console.log(res.data)
