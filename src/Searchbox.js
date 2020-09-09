@@ -1,6 +1,7 @@
 import { Input } from 'antd';
 import React from "react";
 import { AudioOutlined } from '@ant-design/icons';
+import ()
 
 const { Search } = Input;
 
@@ -20,7 +21,13 @@ export default function Searchbar() {
       placeholder="Search for a Place"
       onSearch={value => console.log(value)}
       style={{ width: 200 }}
+      onPressEnter = {(e) => {
+      console.log(e)
+
+      }}
+     
     />
+   
   <br />
    
   </>
