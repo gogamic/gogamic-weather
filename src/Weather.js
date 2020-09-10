@@ -4,6 +4,7 @@ import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
 
+
 const { Meta } = Card;
 
 
@@ -33,11 +34,10 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       console.log("Longitude is :", position.coords.longitude);
       setLat(position.coords.latitude)
       setLong(position.coords.longitude)
-     
-  });
+    });
       
  
-     axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + long +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
+    axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + long +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
     .then(res => {
     const data = res.data;
     console.log(res.data)
@@ -68,6 +68,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   
   return(
   <>
+  <br />
   <center>
   <Search
       placeholder="Search for a Place"
