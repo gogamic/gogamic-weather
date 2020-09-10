@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect  } from "react";
 import axios from 'axios';
 import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
@@ -26,31 +26,34 @@ export default function Weather() {
   
 
 
+
+ useEffect(()=> {
 const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);
       setLat(position.coords.latitude)
       setLong(position.coords.longitude)
-      axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + long +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
-      .then(res => {
-      const data = res.data;
-      console.log(res.data)
-      const logo = data.weather[0].icon;
-      setTemp(Math.floor(data.main.temp  - 273) + "°C");
-      setDes(data.weather[0].description)
-      setCity(data.name);
-      setCountry(data.sys.country);
-      setIcon("owf owf-" + data.weather[0].id)
-      setMax("max =" +(Math.floor(data.main.temp_max - 273)));
-      setMin("min =" +(Math.floor(data.main.temp_min - 273)));
-
      
   });
       
-  
-  
-  })
-  let place = city  + "," + country;
+ 
+     axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + long +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
+    .then(res => {
+    const data = res.data;
+    console.log(res.data)
+    const logo = data.weather[0].icon;
+    setTemp(Math.floor(data.main.temp  - 273) + "°C");
+    setDes(data.weather[0].description)
+    setCity(data.name);
+    setCountry(data.sys.country);
+    setIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
+    setMax("max =" +(Math.floor(data.main.temp_max - 273)));
+    setMin("min =" +(Math.floor(data.main.temp_min - 273)));
+  });
+
+     
+  }, [])
+   let place = city  + "," + country;
   const { Search } = Input;
 
   const suffix = (
@@ -85,7 +88,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       setIcon(`https://openweathermap.org/img/w/${logo}.png`)
       setMax("max =" +(Math.floor(data.main.temp_max - 273)));
       setMin("min =" +(Math.floor(data.main.temp_min - 273)));
-      console.log(icon)............................................................
+      console.log(icon)
 
   })
 
@@ -98,9 +101,10 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
    <Card
     hoverable
     style={{ width: 240 }}
-    cover={<i class= {icon} ></i>}
+    cover={<img src={icon} />}
   >
-    <Meta title={temp} description={des} />
+    <b><Meta title={temp} description={des} /></b>
+   
     <Meta title="" description={max} />
     <Meta title="" description={min} />
     <Meta title="" description={place} />
