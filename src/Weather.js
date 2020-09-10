@@ -36,21 +36,22 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       console.log("Longitude is :", position.coords.longitude);
       setLat(position.coords.latitude)
       setLong(position.coords.longitude)
+       axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ position.coords.latitude + '&lon=' + position.coords.longitude +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
+      .then(res => {
+      const data = res.data;
+      console.log(res.data)
+      const logo = data.weather[0].icon;
+      setTemp(Math.floor(data.main.temp  - 273) + "°C");
+      setDes(data.weather[0].description)
+      setCity(data.name);
+      setCountry(data.sys.country);
+      setIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
+      setMax("max =" +(Math.floor(data.main.temp_max - 273)));
+      setMin("min =" +(Math.floor(data.main.temp_min - 273)));
     });
       
  
-    axios.get('https://api.openweathermap.org/data/2.5/weather?lat='+ lat + '&lon=' + long +'&appid=0960c5b80d5e2de5ae4afd6375aec2ce')
-    .then(res => {
-    const data = res.data;
-    console.log(res.data)
-    const logo = data.weather[0].icon;
-    setTemp(Math.floor(data.main.temp  - 273) + "°C");
-    setDes(data.weather[0].description)
-    setCity(data.name);
-    setCountry(data.sys.country);
-    setIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
-    setMax("max =" +(Math.floor(data.main.temp_max - 273)));
-    setMin("min =" +(Math.floor(data.main.temp_min - 273)));
+   
   });
 
      
@@ -110,7 +111,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
    <Card
     hoverable
     style={{ width: 240 }}
-    cover={<img src={icon} />}
+    cover={<img style={{height:150, width:150}} src={icon} />}
   >
     <b><Meta title={temp} description={des} /></b>
    
