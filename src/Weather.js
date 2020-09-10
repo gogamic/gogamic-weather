@@ -3,6 +3,8 @@ import axios from 'axios';
 import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
+import {Animated} from "react-animated-css";
+
 
 
 const { Meta } = Card;
@@ -69,6 +71,9 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   return(
   <>
   <br />
+  <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
+
+
   <center>
   <Search
       placeholder="Search for a Place"
@@ -97,7 +102,10 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
      
     />
     </center>
+    </Animated>
+
   <br />
+  <Animated animationIn="bounceInUp" animationOut="fadeOut" isVisible={true}>
   <center>
    <Card
     hoverable
@@ -111,7 +119,8 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
     <Meta title="" description={place} />
   </Card>
   </center>
-  
+      </Animated>
+
   </>
   );
 }

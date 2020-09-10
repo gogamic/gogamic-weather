@@ -12,6 +12,8 @@ import {
   GithubOutlined ,
 } from '@ant-design/icons';
 import React from "react";
+import {Animated} from "react-animated-css";
+
 
 const { SubMenu } = Menu;
 
@@ -28,6 +30,7 @@ export default class Navbar extends React.Component {
 
   render() {
     return (
+      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
       <div style={{ width: 256 }}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
           {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
@@ -51,6 +54,8 @@ export default class Navbar extends React.Component {
         
         </Menu>
       </div>
+      </Animated>
+
     );
   }
 }
