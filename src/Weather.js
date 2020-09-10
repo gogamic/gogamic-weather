@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import WeatherIcon from 'react-icons-weather';
-
 import { AudioOutlined } from '@ant-design/icons';
-
 import { Card, Input } from 'antd';
 
 const { Meta } = Card;
@@ -42,7 +40,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       setDes(data.weather[0].description)
       setCity(data.name);
       setCountry(data.sys.country);
-      setIcon(`https://openweathermap.org/img/w/${logo}.png`)
+      setIcon("owf owf-" + data.weather[0].id)
       setMax("max =" +(Math.floor(data.main.temp_max - 273)));
       setMin("min =" +(Math.floor(data.main.temp_min - 273)));
 
@@ -87,7 +85,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       setIcon(`https://openweathermap.org/img/w/${logo}.png`)
       setMax("max =" +(Math.floor(data.main.temp_max - 273)));
       setMin("min =" +(Math.floor(data.main.temp_min - 273)));
-      console.log("done")
+      console.log(icon)............................................................
 
   })
 
@@ -100,7 +98,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
    <Card
     hoverable
     style={{ width: 240 }}
-    cover={<img alt={icon} src={icon} />}
+    cover={<i class= {icon} ></i>}
   >
     <Meta title={temp} description={des} />
     <Meta title="" description={max} />
