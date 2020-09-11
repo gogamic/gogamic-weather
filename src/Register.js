@@ -17,7 +17,7 @@ import { Redirect } from "react-router-dom";
 
 
 
-export default function Login() {
+export default function Register() {
 const [user, setUser] = useState(0);
 const [pass, setPass] = useState(0);
 const [alt, setAlt] = useState();
@@ -28,8 +28,9 @@ const [alt, setAlt] = useState();
   
   <br />
  <center>
-  <h1>Login</h1>
-<br />
+ <h1>Register</h1>
+ <br />
+ 
     {alt}
 <br />
 <br />

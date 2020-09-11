@@ -4,6 +4,7 @@ import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import Navbar from './Nav.js';
 import Weather from './Weather.js';
+import Register from './Register.js';
 import Login from './Login.js';
 import {
   BrowserRouter as Router,
@@ -20,6 +21,10 @@ export default function App() {
       
         <Navbar />
         <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+
           <Route path="/login">
             <Login />
           </Route>
