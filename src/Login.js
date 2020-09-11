@@ -47,10 +47,10 @@ const [alt, setAlt] = useState();
    <Button type="primary" onClick = {(() =>{
   console.log(pass)
   console.log(user)
-  axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/signup?user=${user}&pass=${pass}`)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/signin?user=${user}&pass=${pass}`)
   .then(res => {
    console.log(res.data)
-   if(res.data['status'] == "success") {
+   if(res.data['status'] == null) {
      console.log("success")
          setAlt(<Alert message="Your Account Has Been Created" type="success" />)
   
@@ -60,8 +60,8 @@ const [alt, setAlt] = useState();
     setAlt(<Alert message={res.data['error']} type="error" />)
    }
     });
-   })}> Sign Up</Button>
- 
+   })}> Sign In</Button>
+ <br />
  
  </center>
   </>

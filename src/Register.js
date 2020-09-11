@@ -62,8 +62,9 @@ const [alt, setAlt] = useState();
    }
     });
    })}> Sign Up</Button>
- 
- 
+  <br />
+  <small>Aldredy Have an Account? <a href="/login">Login</a> </small>
+
  </center>
   </>
   );
