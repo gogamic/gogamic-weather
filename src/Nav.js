@@ -1,12 +1,17 @@
 import { Menu } from 'antd';
 import {HomeOutlined, GithubOutlined , ContactsOutlined  } from '@ant-design/icons';
-import React from "react";
+import React , {useState} from "react";
 import {Animated} from "react-animated-css";
+import Cookies from 'universal-cookie';
+import axios from 'axios';
 
+const cookies = new Cookies();
 
 const { SubMenu } = Menu;
 
 export default class Navbar extends React.Component {
+
+  
   state = {
     current: 'mail',
   };
@@ -17,6 +22,25 @@ export default class Navbar extends React.Component {
   };
 
   render() {
+const [userr, setUserr] = useState();
+
+
+    if(cookies.get('Token')) {
+  console.log(cookies.get('Token'))
+  axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
+  .then(res => {
+   console.log(res.data)
+   setUserr(<Menu.Item key="Profile" icon={<ContactsOutlined />}>
+        Profile
+        </Menu.Item>
+        )
+  
+  });
+ 
+}  
+else {
+  console.log("Not Found")
+}
     const { current } = this.state;
     return (
       <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
@@ -29,6 +53,9 @@ export default class Navbar extends React.Component {
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
          Contact Us
         </Menu.Item>
+   {userr}
+    
+        
        
        
       </Menu>
