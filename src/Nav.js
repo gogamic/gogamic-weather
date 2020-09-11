@@ -11,7 +11,8 @@ const { SubMenu } = Menu;
 
 export default class Navbar extends React.Component {
 
-  
+ 
+
   state = {
     current: 'mail',
   };
@@ -23,7 +24,7 @@ export default class Navbar extends React.Component {
 
   render() {
 
-
+let rightStyle = {position: 'absolute', top: 0, right: 0}
 
     if(cookies.get('Token')) {
   console.log(cookies.get('Token'))
@@ -48,6 +49,9 @@ else {
           Github
         </Menu.Item>
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
+         Contact Us
+        </Menu.Item>
+         <Menu.Item key="contact" style={rightStyle} icon={<ContactsOutlined />}>
          Contact Us
         </Menu.Item>
     
