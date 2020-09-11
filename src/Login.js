@@ -8,12 +8,15 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { Alert } from 'antd';
 import { Redirect } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 
 
 
 
+
+const cookies = new Cookies();
 
 
 
@@ -22,7 +25,13 @@ const [user, setUser] = useState(0);
 const [pass, setPass] = useState(0);
 const [alt, setAlt] = useState();
 
-  
+if(cookies.get('Token')) {
+  console.log(cookies.get('Token'))
+  return <Redirect to='/'/>;
+}  
+else {
+  console.log("Not Found")
+}
   return(
   <>
   
@@ -50,11 +59,21 @@ const [alt, setAlt] = useState();
   axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/signin?user=${user}&pass=${pass}`)
   .then(res => {
    console.log(res.data)
+   
    if(res.data['status'] == null) {
      console.log("success")
+       if(res.data['verified'] == "no") {
+    setAlt(<Alert message="Please Verify Your Mail" type="info" />)
+   }
+   else {
+     cookies.set('Token', res.data['token'], { path: '/' });
+     console.log(cookies.get('Token')); // Pacman
+
          setAlt(<Alert message="Your Account Has Been Created" type="success" />)
+   }
   
    }
+ 
    else {
      console.log(res.data['error'])
     setAlt(<Alert message={res.data['error']} type="error" />)
