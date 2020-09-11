@@ -22,7 +22,7 @@ export default class Navbar extends React.Component {
   };
 
   render() {
-const [userr, setUserr] = useState();
+
 
 
     if(cookies.get('Token')) {
@@ -30,10 +30,7 @@ const [userr, setUserr] = useState();
   axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
   .then(res => {
    console.log(res.data)
-   setUserr(<Menu.Item key="Profile" icon={<ContactsOutlined />}>
-        Profile
-        </Menu.Item>
-        )
+  
   
   });
  
@@ -53,7 +50,6 @@ else {
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
          Contact Us
         </Menu.Item>
-   {userr}
     
         
        
