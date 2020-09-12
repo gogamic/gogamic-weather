@@ -23,19 +23,23 @@ export default class Navbar extends React.Component {
   };
 
   render() {
+  
 
-
+  
     if(cookies.get('Token')) {
-  console.log(cookies.get('Token'))
-  axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
-  .then(res => {
-   console.log(res.data)
-  
-  
-  });
+      console.log(cookies.get('Token'))
+      axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
+      .then(res => {
+      console.log(res.data)
+    
+     
+      
+      
+      });
  
 }  
 else {
+   
   console.log("Not Found")
 }
     const { current } = this.state;
@@ -50,12 +54,8 @@ else {
         <Menu.Item key="contact" icon={<ContactsOutlined />}>
          Contact Us
         </Menu.Item>
-         <Menu.Item key="Login" icon={<ContactsOutlined />}>
-         Login
-        </Menu.Item>
-          <Menu.Item key="Register"  icon={<ContactsOutlined />}>
-        Register
-        </Menu.Item>
+     
+             
     
         
        
