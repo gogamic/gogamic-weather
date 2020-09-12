@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
 import Navbar from './Nav.js';
+import Sidenav from './Sidenav.js';
 import Weather from './Weather.js';
 import Register from './Register.js';
 import Login from './Login.js';
@@ -20,6 +21,8 @@ export default function App() {
       <div>
       
         <Navbar />
+        <br />
+        <Sidenav />
         <Switch>
           <Route path="/register">
             <Register />

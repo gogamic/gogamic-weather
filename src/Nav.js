@@ -26,22 +26,7 @@ export default class Navbar extends React.Component {
   
 
   
-    if(cookies.get('Token')) {
-      console.log(cookies.get('Token'))
-      axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
-      .then(res => {
-      console.log(res.data)
     
-     
-      
-      
-      });
- 
-}  
-else {
-   
-  console.log("Not Found")
-}
     const { current } = this.state;
     return (
       <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
