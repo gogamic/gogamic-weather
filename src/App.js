@@ -7,6 +7,10 @@ import Sidenav from './Sidenav.js';
 import Weather from './Weather.js';
 import Register from './Register.js';
 import Login from './Login.js';
+import Profile from './Profile.js';
+import Logout from './Logout.js';
+
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +34,14 @@ export default function App() {
 
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/profile">
+            <Profile />
+          </Route>
+
+           <Route path="/logout">
+            <Logout />
           </Route>
         
           <Route path="/">
