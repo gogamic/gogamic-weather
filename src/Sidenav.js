@@ -53,10 +53,16 @@ else {
           }
         >
           <Menu.ItemGroup key="g1" title="">
-          <Menu.Item key="1" onClick={() => {}}><a href="/login">Login</a></Menu.Item>  
-          <Menu.Item key="2">Register</Menu.Item>
-          {if cookies.get('Token')   ? <Render1Component /> : <Render2Component/>}
-
+         
+         {cookies.get('Token')
+        ?<Menu.Item key="1"><a href="/profile">Profile</a></Menu.Item> 
+        :<Menu.Item key="1"><a href="/login">Login</a></Menu.Item> 
+        }
+        {cookies.get('Token')
+        ? <Menu.Item key="2"><a href="/logout">Logout</a></Menu.Item> 
+        : <Menu.Item key="2">Register</Menu.Item>
+        }
+       
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="">
             <Menu.Item key="3" disabled>Cloud(Coming soon)</Menu.Item>

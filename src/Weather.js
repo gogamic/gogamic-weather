@@ -71,7 +71,6 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   
   return(
   <>
-  <br />
   <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
 
 
