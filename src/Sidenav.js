@@ -55,6 +55,8 @@ else {
           <Menu.ItemGroup key="g1" title="">
           <Menu.Item key="1" onClick={() => {}}><a href="/login">Login</a></Menu.Item>  
           <Menu.Item key="2">Register</Menu.Item>
+          {if cookies.get('Token')   ? <Render1Component /> : <Render2Component/>}
+
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="">
             <Menu.Item key="3" disabled>Cloud(Coming soon)</Menu.Item>
