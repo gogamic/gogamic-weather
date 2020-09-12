@@ -28,41 +28,14 @@ const [user, setUser] = useState('User');
       let c = JSON.parse(res.data)
       console.log(c['email'])
       setUser(c['email'])
-      return (
-   <Menu
-        onClick={}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-      >
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <MailOutlined />
-              <span>Hello {user}</span>
-            </span>
-          }
-        >
-          <Menu.ItemGroup key="g1" title="">
-          <Menu.Item key="1">Profile</Menu.Item>  
-          <Menu.Item key="2">Logout</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="">
-            <Menu.Item key="3" disabled>Cloud(Coming soon)</Menu.Item>
-            <Menu.Item key="4" disabled>API(Coming soon)</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        
-      </Menu>
-    
-  );
+ 
     });
 }  
 else {
    console.log("Not Found")
-    return (
+    
+}
+ return (
    <Menu
         onClick={}
         style={{ width: 256 }}
@@ -92,6 +65,4 @@ else {
       </Menu>
     
   );
-}
- 
 }
