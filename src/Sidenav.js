@@ -3,6 +3,8 @@ import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
+import { Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 
 
@@ -17,6 +19,8 @@ const { SubMenu } = Menu;
 const cookies = new Cookies();
 
 export default function Sidenav() {
+  const { Meta } = Card;
+
 const [user, setUser] = useState('User');
 
 
@@ -36,41 +40,26 @@ else {
     
 }
  return (
-   <Menu
-        onClick={}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-      >
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <MailOutlined />
-              <span>Hello {user}</span>
-            </span>
-          }
-        >
-          <Menu.ItemGroup key="g1" title="">
-         
-         {cookies.get('Token')
-        ?<Menu.Item key="1"><a href="/profile">Profile</a></Menu.Item> 
-        :<Menu.Item key="1"><a href="/login">Login</a></Menu.Item> 
-        }
-        {cookies.get('Token')
-        ? <Menu.Item key="2"><a href="/logout">Logout</a></Menu.Item> 
-        : <Menu.Item key="2">Register</Menu.Item>
-        }
-       
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="">
-            <Menu.Item key="3" disabled>Cloud(Coming soon)</Menu.Item>
-            <Menu.Item key="4" disabled>API(Coming soon)</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        
-      </Menu>
+   <>
+  <center>
+       <Card
+    style={{ width: 200 }}
+    cover={
     
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+      title="Card title"
+      description="This is the description"
+    />
+  </Card>
+  </center>
+    </>
   );
 }

@@ -26,7 +26,7 @@ export default function App() {
       
         <Navbar />
         <br />
-        <Sidenav />
+        
         <Switch>
           <Route path="/register">
             <Register />
@@ -45,7 +45,11 @@ export default function App() {
           </Route>
         
           <Route path="/">
-            <Weather />
+           <Row>
+          <Col span={1}><Sidenav /></Col>
+          <Col span={23}> <Weather /></Col>
+        </Row>
+           
           </Route>
         </Switch>
       </div>
