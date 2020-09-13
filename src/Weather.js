@@ -4,6 +4,8 @@ import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
 import {Animated} from "react-animated-css";
+const queryString = require('query-string');
+
 
 
 
@@ -31,6 +33,7 @@ export default function Weather() {
 
 
  useEffect(()=> {
+   
 const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       console.log("Latitude is :", position.coords.latitude);
       console.log("Longitude is :", position.coords.longitude);

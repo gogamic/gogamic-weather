@@ -27,7 +27,7 @@ const [pass, setPass] = useState(0);
 const [alt, setAlt] = useState();
 const [z, setZ] = useState();
 
-  
+ 
   return(
   <>
   
@@ -74,7 +74,8 @@ const [z, setZ] = useState();
    })}> Sign Up {z}</Button>
   <br />
   <small>Aldredy Have an Account? <a href="/login">Login</a> </small>
-
+<br />
+{JSON.stringify(location.search)}
  </center>
   </>
   );

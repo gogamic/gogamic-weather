@@ -83,7 +83,7 @@ else {
    else {
      cookies.set('Token', res.data['token'], { path: '/' });
      console.log(cookies.get('Token')); // Pacman
-
+    setZ(<Redirect to='/'/>)
          setAlt(<Alert message="Your Account Has Been Created" type="success" />)
    }
   

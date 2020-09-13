@@ -13,9 +13,9 @@
     "better-console": "^1.0.1",
     "del": "^5.1.0",
     "extend": "^3.0.2",
-   
     "map-stream": "^0.1.0",
     "prop-types": "15.7.2",
+    "query-string": "^6.13.1",
     "react": "16.13.1",
     "react-animated-css": "1.2.1",
     "react-dom": "16.13.1",
