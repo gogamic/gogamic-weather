@@ -9,6 +9,7 @@ import axios from 'axios';
 import { Alert } from 'antd';
 import { Redirect } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import {SyncOutlined,} from '@ant-design/icons';
 
 
 
@@ -24,6 +25,17 @@ export default function Login() {
 const [user, setUser] = useState(0);
 const [pass, setPass] = useState(0);
 const [alt, setAlt] = useState();
+const [z, setZ] = useState();
+
+ useEffect(()=> {
+
+if(cookies.get('Acctype')) {
+  console.log(cookies.get('Acctype'))
+  setAlt(<Alert message="Your Account Has Been Created" type="success" />)
+}  
+else {
+  console.log("Old User")
+}
 
 if(cookies.get('Token')) {
   console.log(cookies.get('Token'))
@@ -32,6 +44,7 @@ if(cookies.get('Token')) {
 else {
   console.log("Not Found")
 }
+ },[])
   return(
   <>
   
@@ -42,7 +55,7 @@ else {
     {alt}
 <br />
 <br />
-  <Input placeholder="Username" style={{width:200 }} prefix={<UserOutlined />} onChange= { (e) =>{
+  <Input placeholder="Email" style={{width:200 }} prefix={<UserOutlined />} onChange= { (e) =>{
   setUser(e.target.value)
   }} />
   <br />
@@ -54,6 +67,7 @@ else {
    <br />
    <br />
    <Button type="primary" onClick = {(() =>{
+     setZ(<SyncOutlined spin />)
   console.log(pass)
   console.log(user)
   axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/signin?user=${user}&pass=${pass}`)
@@ -63,6 +77,7 @@ else {
    if(res.data['status'] == null) {
      console.log("success")
        if(res.data['verified'] == "no") {
+          setZ()
     setAlt(<Alert message="Please Verify Your Mail" type="info" />)
    }
    else {
@@ -76,10 +91,11 @@ else {
  
    else {
      console.log(res.data['error'])
+     setZ()
     setAlt(<Alert message={res.data['error']} type="error" />)
    }
     });
-   })}> Sign In</Button>
+   })} > Sign In {z}</Button>
  <br />
  
  </center>

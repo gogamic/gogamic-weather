@@ -7,7 +7,9 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { Alert } from 'antd';
+import Cookies from 'universal-cookie';
 import { Redirect } from "react-router-dom";
+import {SyncOutlined} from '@ant-design/icons';
 
 
 
@@ -15,12 +17,15 @@ import { Redirect } from "react-router-dom";
 
 
 
+
+const cookies = new Cookies();
 
 
 export default function Register() {
 const [user, setUser] = useState(0);
 const [pass, setPass] = useState(0);
 const [alt, setAlt] = useState();
+const [z, setZ] = useState();
 
   
   return(
@@ -34,7 +39,7 @@ const [alt, setAlt] = useState();
     {alt}
 <br />
 <br />
-  <Input placeholder="Username" style={{width:200 }} prefix={<UserOutlined />} onChange= { (e) =>{
+  <Input placeholder="Email" style={{width:200 }} prefix={<UserOutlined />} onChange= { (e) =>{
   setUser(e.target.value)
   }} />
   <br />
@@ -46,6 +51,8 @@ const [alt, setAlt] = useState();
    <br />
    <br />
    <Button type="primary" onClick = {(() =>{
+   setZ(<SyncOutlined spin />)
+
   console.log(pass)
   console.log(user)
   axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/signup?user=${user}&pass=${pass}`)
@@ -53,7 +60,10 @@ const [alt, setAlt] = useState();
    console.log(res.data)
    if(res.data['status'] == "success") {
      console.log("success")
-         setAlt(<Alert message="Your Account Has Been Created" type="success" />)
+     cookies.set('Acctype', 'New', { path: '/login' });
+     setAlt(<Redirect to='/login'/>)
+      setZ()
+      //setAlt(<Alert message="Your Account Has Been Created" type="success" />)
   
    }
    else {
@@ -61,7 +71,7 @@ const [alt, setAlt] = useState();
     setAlt(<Alert message={res.data['error']} type="error" />)
    }
     });
-   })}> Sign Up</Button>
+   })}> Sign Up {z}</Button>
   <br />
   <small>Aldredy Have an Account? <a href="/login">Login</a> </small>
 
