@@ -5,15 +5,9 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 import { Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Redirect } from "react-router-dom";
 
 
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 const { SubMenu } = Menu;
 
 const cookies = new Cookies();
@@ -48,15 +42,13 @@ else {
     
     }
     actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
+     
     ]}
   >
     <Meta
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-      title="Card title"
-      description="This is the description"
+      title={user}
+      description={`Good Eveneing ${user} `}
     />
   </Card>
   </center>
