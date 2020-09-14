@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Redirect } from "react-router-dom";
+const queryString = require('query-string');
 
 
 const { SubMenu } = Menu;
@@ -17,18 +18,31 @@ export default function Sidenav() {
 
 const [user, setUser] = useState('User');
 
-
- if(cookies.get('Token')) {
-      console.log(cookies.get('Token'))
-      axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${cookies.get('Token')}`)
-      .then(res => {
-      console.log(res.data)
-      let c = JSON.parse(res.data)
-      console.log(c['email'])
-      setUser(c['email'])
+const parsed = queryString.parse(location.search);
+   console.log(JSON.stringify(parsed)); 
+  if(parsed['token']) {
+    console.log(parsed['token'])
+    axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${parsed['token']}`)
+    .then(res => {
+    console.log(res.data)
+    let c = JSON.parse(res.data)
+    console.log(c['email'])
+    setUser(c['displayName'])
+    cookies.set('Token', parsed['token'], { path: '/' });
+  });
  
-    });
-}  
+}
+ else if(cookies.get('Token')) {
+   let token = cookies.get('Token')
+    axios.get(`https://cors-anywhere.herokuapp.com/https://gogamic-api.glitch.me/api/weather/token?token=${token}`)
+    .then(res => {
+    console.log(res.data)
+    let c = JSON.parse(res.data)
+    console.log(c['email'])
+    setUser(c['displayName'])
+
+ });
+ } 
 else {
    console.log("Not Found")
     

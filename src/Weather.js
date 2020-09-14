@@ -4,7 +4,6 @@ import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
 import {Animated} from "react-animated-css";
-const queryString = require('query-string');
 
 
 
@@ -52,8 +51,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
       setMax("max =" +(Math.floor(data.main.temp_max - 273)));
       setMin("min =" +(Math.floor(data.main.temp_min - 273)));
     });
-      
- 
+   
    
   });
 
