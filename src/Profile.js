@@ -2,7 +2,7 @@ import React, { useState ,useEffect  } from "react";
 import axios from 'axios';
 import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
-import {Animated} from "react-animated-css0";
+import {Animated} from "react-animated-css";
 import { Form, Input, Button, Radio } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import Cookies from 'universal-cookie';
