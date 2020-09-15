@@ -20,6 +20,7 @@ export default function Weather() {
 
 if (isMobile) {
         console.log('Mobile')
+        return <h1> Mobile</h1>
     }
   
  const [lat, setLat] = useState(0);
