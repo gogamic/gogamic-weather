@@ -20,7 +20,7 @@ export default function Weather() {
 
 if (isMobile) {
         console.log('Mobile')
-        return <h1> Mobile</h1>
+        return window.location.replace("https://m.weather.gogamic.com");
     }
   
  const [lat, setLat] = useState(0);
