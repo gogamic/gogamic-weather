@@ -9,6 +9,8 @@ import Register from './Register.js';
 import Login from './Login.js';
 import Profile from './Profile.js';
 import Logout from './Logout.js';
+import MetaTags from 'react-meta-tags';
+
 
 
 import {
@@ -23,7 +25,15 @@ export default function App() {
   return (
   <Router>
       <div>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <MetaTags>
+            <title>Page 1</title>
+            <meta name="description" content="Some description." />
+            <meta property="og:title" content="MyApp" />
+            <meta property="og:image" content="path/to/image.jpg" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            </MetaTags>
+          
+        
         <Navbar />
         <br />
         
