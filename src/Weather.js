@@ -4,6 +4,8 @@ import WeatherIcon from 'react-icons-weather';
 import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
 import {Animated} from "react-animated-css";
+import {isMobile} from 'react-device-detect';
+
 
 
 
@@ -16,7 +18,9 @@ const { Meta } = Card;
 
 export default function Weather() {
 
-
+if (isMobile) {
+        console.log('Mobile')
+    }
   
  const [lat, setLat] = useState(0);
  const [long, setLong] = useState(0);
