@@ -18,10 +18,7 @@ const { Meta } = Card;
 
 export default function Weather() {
 
-if (isMobile) {
-        console.log('Mobile')
-        return window.location.replace("https://m.weather.gogamic.com");
-    }
+
   
  const [lat, setLat] = useState(0);
  const [long, setLong] = useState(0);
