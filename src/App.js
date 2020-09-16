@@ -2,7 +2,9 @@ import React from "react";
 import { Row, Col } from 'antd';
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
+import './style.css';
 import Navbar from './Nav.js';
+
 import Sidenav from './Sidenav.js';
 import Weather from './Weather.js';
 import Register from './Register.js';
@@ -31,11 +33,11 @@ export default function App() {
   <Router>
       <div>
           <MetaTags>
-            <title>Page 1</title>
+            <title>Home</title>
             <meta name="description" content="Some description." />
             <meta property="og:title" content="MyApp" />
             <meta property="og:image" content="path/to/image.jpg" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <meta name="viewport" content="width=device-width, user-scalable=no" />
             </MetaTags>
           
         
@@ -62,11 +64,15 @@ export default function App() {
           <Route path="/">
            <Row>
            <BrowserView>
-            <Col span={1}><Sidenav /></Col>
-          <Col span={23}> <Weather /></Col>
+          <Sidenav />
+          <center>
+          <Weather />
+          </center>
+         
         </BrowserView>
         <MobileView>
-             <Col span={1}><Sidenav /></Col>
+        
+             <Sidenav />
              <br />
              <br />
              <br />
@@ -74,7 +80,8 @@ export default function App() {
             <br />
              <br />
              <br />
-          <Col span={23}> <Weather /></Col>
+         <Weather />
+           
         </MobileView>
         
         </Row>

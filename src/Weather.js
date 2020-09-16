@@ -10,6 +10,7 @@ import {isMobile} from 'react-device-detect';
 
 
 
+
 const { Meta } = Card;
 
 
@@ -110,6 +111,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   <br />
   <Animated animationIn="bounceInUp" animationOut="fadeOut" isVisible={true}>
   <center>
+  <div class="weather">
    <Card
     hoverable
     style={{ width: 240 }}
@@ -121,6 +123,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
     <Meta title="" description={min} />
     <Meta title="" description={place} />
   </Card>
+  </div>
   </center>
       </Animated>
 
