@@ -10,7 +10,12 @@ import Login from './Login.js';
 import Profile from './Profile.js';
 import Logout from './Logout.js';
 import MetaTags from 'react-meta-tags';
-
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 
 import {
@@ -56,8 +61,22 @@ export default function App() {
         
           <Route path="/">
            <Row>
-          <Col span={1}><Sidenav /></Col>
+           <BrowserView>
+            <Col span={1}><Sidenav /></Col>
           <Col span={23}> <Weather /></Col>
+        </BrowserView>
+        <MobileView>
+             <Col span={1}><Sidenav /></Col>
+             <br />
+             <br />
+             <br />
+             <br />
+            <br />
+             <br />
+             <br />
+          <Col span={23}> <Weather /></Col>
+        </MobileView>
+        
         </Row>
            
           </Route>
