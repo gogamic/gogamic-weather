@@ -62,30 +62,10 @@ export default function App() {
           </Route>
         
           <Route path="/">
-           <Row>
-           <BrowserView>
-          <Sidenav />
-          <center>
-          <Weather />
-          </center>
-         
-        </BrowserView>
-        <MobileView>
-        
-             <Sidenav />
-             <br />
-             <br />
-             <br />
-             <br />
-            <br />
-             <br />
-             <br />
-         <Weather />
-           
-        </MobileView>
-        
-        </Row>
-           
+         <div className="contianer-main">
+      <Sidenav />
+      <Weather />
+         </div>
           </Route>
         </Switch>
       </div>
