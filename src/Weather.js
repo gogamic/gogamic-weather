@@ -75,10 +75,12 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   
   return(
   <>
+  <div className="container">
   <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
 
 
   <center>
+  
   <Search
       placeholder="Search for a Place"
       onSearch={value => console.log(value)}
@@ -126,7 +128,7 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   </div>
   </center>
       </Animated>
-
+</div>
   </>
   );
 }

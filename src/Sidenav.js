@@ -49,9 +49,9 @@ else {
 }
  return (
    <>
-  <center>
+
        <Card
-    style={{ width: 200 }}
+    className="card"
     cover={
     
     }
@@ -60,12 +60,13 @@ else {
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+      avatar={/*<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />*/}
       title={user}
+      className="card-icon"
       description={`Good Eveneing ${user} `}
     />
   </Card>
-  </center>
+  
     </>
   );
 }
