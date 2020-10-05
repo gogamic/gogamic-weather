@@ -18,12 +18,5 @@ const cookies = new Cookies();
 
 export default function Profile() {
  cookies.remove('Token')
-  return(
-  <>
-  <center>
-   <Redirect to='/'/>;
-
-  </center>
-  </>
-  );
+  return(window.location.replace('/'));
 }

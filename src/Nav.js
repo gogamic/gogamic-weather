@@ -1,5 +1,5 @@
 import { Menu } from 'antd';
-import {HomeOutlined, GithubOutlined , ContactsOutlined, LoginOutlined, UserAddOutlined} from '@ant-design/icons';
+import {HomeOutlined, GithubOutlined ,LogoutOutlined,  ContactsOutlined, LoginOutlined, UserAddOutlined} from '@ant-design/icons';
 import React , {useState} from "react";
 import {Animated} from "react-animated-css";
 import Cookies from 'universal-cookie';
@@ -29,6 +29,7 @@ export default class Navbar extends React.Component {
     
     const { current } = this.state;
     return (
+      
       <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="mail" icon={<HomeOutlined />}>
           Home
@@ -44,7 +45,7 @@ export default class Navbar extends React.Component {
         : <Menu.Item key="Login" icon={<LoginOutlined />}><a href="/login">Login</a></Menu.Item>
         }  
          {cookies.get('Token') 
-        ? <Menu.Item key="contact" icon={<ContactsOutlined />}>Contact </Menu.Item>
+        ? <Menu.Item key="logout" icon={<LogoutOutlined />}><a href="/logout">Logout </a> </Menu.Item>
         : <Menu.Item key="Register" icon={<UserAddOutlined />}><a href="login">Register</a></Menu.Item>
         }  
        

@@ -5,6 +5,8 @@ import { AudioOutlined } from '@ant-design/icons';
 import { Card, Input } from 'antd';
 import {Animated} from "react-animated-css";
 import {isMobile} from 'react-device-detect';
+import { Switch } from 'antd';
+
 
 
 
@@ -17,7 +19,7 @@ const { Meta } = Card;
 
 
 
-export default function Weather() {
+export default function Weather(props) {
 
 
   
@@ -26,7 +28,7 @@ export default function Weather() {
  const [temp, setTemp] = useState(0);
  const [max, setMax] = useState(0);
  const [min, setMin] = useState(0);
- const [icon, setIcon] = useState(0);
+ const [icon, setIcon] = useState("error");
  const [des, setDes] = useState(0);
  const [city, setCity] = useState(0);
  const [country, setCountry] = useState(0);
@@ -116,8 +118,9 @@ const getloction = navigator.geolocation.getCurrentPosition(function(position) {
   <div class="weather">
    <Card
     hoverable
-    style={{ width: 240 }}
-    cover={<img style={{height:150, width:150}} src={icon} />}
+    className="weather"
+    style={{ width: 240,}}
+    cover={<img style={{height:150, width:150}} src={icon}  />}
   >
     <b><Meta title={temp} description={des} /></b>
    

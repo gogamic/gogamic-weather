@@ -26,6 +26,6 @@ export default function Login() {
      return window.location.href = `/`;
    }
    else{
-   return window.location.href = `https://accounts.gogamic.com/login?site=https://weather.gogamic.com`;
+   return window.location.href = `https://accounts.gogamic.com/login?site=https://${window.location.hostname}`;
    }
 }
