@@ -1,3 +1,2 @@
-# react-pssbms
+# GOGAMIC-WEATHER
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-pssbms)
